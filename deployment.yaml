@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hiring-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hiring-app
+  template:
+    metadata:
+      labels:
+        app: hiring-app
+    spec:
+      containers:
+      - name: hiring-app-container
+        image: omer2k1/hiring-app:latest
+        ports:
+        - containerPort: 8080
